@@ -1,3 +1,78 @@
+/* geral */
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* navbar */
+#navbar{
+    background-color: transparent;
+    padding: 0 15px;
+    height: 60px;
+}
+
+#navbar i, #navbar ul, #navbar-list li, #navbar nav{
+    display: inline-block;
+}
+
+#navbar i{
+    margin: 0;
+    line-height: 60px;
+    margin-left: 200px;
+}
+
+#navbar nav{
+    float: right;
+    margin-right: 200px;
+}
+
+#navbar li{
+    margin: 0 25px;
+}
+
+#navbar-list li a{
+    text-decoration: none;
+    color: black;
+}
+
+#navbar-list li a:hover{
+    text-decoration: underline;
+}
+
+/* banner */
+#main-background{
+    height: 70vh;
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+}
+
+#card-init{
+    padding-top: 15vh;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#card-init div{
+    padding: 0 40px;
+}
+
+#card-init h1{
+    font-size: 3vw;
+}
+
+#card-init p{
+    font-size: 0.9vw;
+}
+
+#card-init button{
+    margin-top: 5vh;
+}
+
 .bi-house-door{
     font-size: 40pt;
 }
+
+

@@ -13,7 +13,8 @@
 
 <body>
     {{-- navbar --}}
-    <header>
+    <main id="main-background">
+    <header id="navbar">
         <i class="bi bi-house-door"></i>
         <nav>
             <ul id="navbar-list">
@@ -23,15 +24,16 @@
             </ul>
         </nav>
     </header>
-    <main>
 
-        {{-- Banner --}}
-        <div id="banner-background">
+        {{-- Primeiro card --}}
+        <div id="card-init">
             <h1>LANDING PAGE FOR REAL ESTATE</h1>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking at its layout. The point of using Lorem ipsum is that it has a more-or-less normal distribution
-                of letters,</p>
-            <button>Read More</button>
+            <div>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                    looking at its layout. The point of using Lorem ipsum is that it has a more-or-less normal distribution
+                    of letters,</p>
+                <button>Read More</button>
+            </div>
         </div>
 
         {{-- Faixa central com infos --}}
