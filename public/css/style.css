@@ -75,4 +75,168 @@ body{
     font-size: 40pt;
 }
 
+.btn-read{
+    padding: 20px 75px;
+    border-radius: 10px;
+    background-color: #D53711;
+    color: white;
+    border: none;
+}
+
+.info-list{
+    background-color: black;
+    color: white;
+    padding: 50px;
+    margin-top: 5vh;
+    font-size: 15pt;
+}
+
+.info-list li{
+    display: inline-block;
+    margin: 0 50px;
+}
+
+.info-list ul{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.explore{
+    font-size: 18pt;
+    font-weight: 700;
+}
+
+.bi-1-circle, .bi-2-circle, .bi-3-circle{
+    margin: 0 25px;
+    font-size: 30pt;
+}
+
+#card-carrosel{
+    margin-top: 20vh;
+}
+
+#card-carrosel h2{
+    font-size: 35pt;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+#card-carrosel p{
+    font-size: 12pt;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.carrosel-div{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.p{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider {
+    display: block;
+    height: 400px;
+    width: 800px;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+}
+
+.slider li {
+    list-style: none;
+    position: absolute;
+}
+
+.slider img {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+    max-height: 500px;
+    max-width: 800px;
+    border: 15px solid grey;
+}
+
+.slider input {
+    display: none;
+}
+
+.slider label {
+    background-color: #000;
+    top: 20px;
+    cursor: pointer;
+    display: block;
+    height: 10px;
+    position: absolute;
+    width: 10px;
+    z-index: 10;
+    margin-left: 10px;
+}
+
+.slider li:nth-child(1) label {
+    left: 10px;
+}
+
+.slider li:nth-child(2) label {
+    left: 40px;
+}
+
+.slider li:nth-child(3) label {
+    left: 70px;
+}
+
+.slider li:nth-child(4) label {
+    left: 100px;
+}
+
+.slider li:nth-child(5) label {
+    left: 130px;
+}
+
+.slider img {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.slider li input:checked ~ img {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+/* terceiro card */
+#card-builds{
+    height: 70vh;
+    background-image: url('../img/8.jpg');
+    background-size: cover;
+    margin-top: 20vh;
+    padding-top: 300px;
+}
+
+#center-content{
+    width: 40%;
+    background-color: white;
+    opacity: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+#center-content h2{
+    font-size: 30pt;
+}
+
+
+
 

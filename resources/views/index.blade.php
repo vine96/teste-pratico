@@ -32,18 +32,18 @@
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when
                     looking at its layout. The point of using Lorem ipsum is that it has a more-or-less normal distribution
                     of letters,</p>
-                <button>Read More</button>
+                <button class="btn-read">Read More</button>
             </div>
         </div>
 
         {{-- Faixa central com infos --}}
         <section id="card-info">
-            <div>
-                <ul id="info-list">
-                    <li>Explore community</li>
-                    <li>40 lifestyle Awards</li>
-                    <li>Happy Family</li>
-                    <li>20 Years</li>
+            <div class="info-list">
+                <ul>
+                    <li class="explore">Explore community</li>
+                    <li><i class="bi bi-1-circle"></i> 40 lifestyle Awards</li>
+                    <li><i class="bi bi-2-circle"></i> Happy Family</li>
+                    <li><i class="bi bi-3-circle"></i> 20 Years</li>
                 </ul>
             </div>
         </section>
@@ -52,14 +52,40 @@
 
     {{-- Carrosel --}}
     <section id="card-carrosel">
-        <div>
-            <h1>OUR HOME AND FLATS</h1>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                of letters,</p>
-            @for ($i = 1; $i <= 8; $i++)
-                <img src="{{ URL::asset("img/$i.jpg") }}" alt="Casa {{ $i }}">
-            @endfor
+        <div class="carrosel-div">
+            <h2>OUR HOME AND FLATS</h2>
+            <div class="p">
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when
+                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+                    of letters,</p>
+            </div>
+            <ul class="slider">
+                <li>
+                      <input type="radio" id="slide1" name="slide" checked>
+                      <label for="slide1"></label>
+                      <img src="{{ URL::asset("img/1.jpg") }}" />
+                </li>
+                <li>
+                      <input type="radio" id="slide2" name="slide">
+                      <label for="slide2"></label>
+                      <img src="{{ URL::asset("img/2.jpg") }}" />
+                </li>
+                <li>
+                      <input type="radio" id="slide3" name="slide">
+                      <label for="slide3"></label>
+                      <img src="{{ URL::asset("img/5.jpg") }}" />
+                </li>
+                <li>
+                    <input type="radio" id="slide4" name="slide">
+                    <label for="slide4"></label>
+                    <img src="{{ URL::asset("img/6.jpg") }}" />
+                </li>
+                <li>
+                    <input type="radio" id="slide5" name="slide">
+                    <label for="slide5"></label>
+                    <img src="{{ URL::asset("img/7.jpg") }}" />
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -67,11 +93,11 @@
     <section id="card-builds">
         <div>
             <div id="center-content">
-                <h1>FIND YOUR HOUSE WITHOUT ANY DIFFICULTIES</h1>
+                <h2>FIND YOUR HOUSE WITHOUT ANY DIFFICULTIES</h2>
                 <p>It is a long established fact that a reader will be distracted by the readable content of a page when
                     looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
                     distribution of letters,</p>
-                <button>Read More</button>
+                <button class="btn-read">Read More</button>
             </div>
         </div>
     </section>
@@ -86,7 +112,7 @@
                     <p>It is a long established fact that a reader will be distracted by the readable content of a page
                         when lookin at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
                         distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-                    <button>See More</button>
+                    <button class="btn-read">See More</button>
                 </div>
                 <div id="img-home">
                     <img src="{{ URL::asset('img/8.jpg') }}" alt="Casa 8">
