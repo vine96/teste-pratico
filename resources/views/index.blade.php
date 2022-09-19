@@ -104,15 +104,19 @@
 
     {{-- quarto card --}}
     <section id="card-home">
-        <div>
-            <div>
-                <h1>A UNIQUE BALANCE OF LUXURY LIFE</h1>
+        <div class="home-internal">
+            <div class="info-home">
+                <h2>A UNIQUE BALANCE OF LUXURY LIFE</h2>
                 <div id="note">
-                    <h1>1</h1>
+                    <div class="number">
+                    <h3>01</h3>
+                    </div>
                     <p>It is a long established fact that a reader will be distracted by the readable content of a page
                         when lookin at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
                         distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-                    <button class="btn-read">See More</button>
+                    <div class="number">
+                        <button class="btn-read alt">See More</button>
+                    </div>
                 </div>
                 <div id="img-home">
                     <img src="{{ URL::asset('img/8.jpg') }}" alt="Casa 8">
@@ -123,17 +127,19 @@
 
     {{-- card de contato --}}
     <section id="card-contact">
-        <div>
-            <h1>Free Multipurpose</h1>
-            <h1>Responsive Landing Page 2019</h1>
+        <div class="contact-info">
+            <h2>Free Multipurpose</h2>
+            <h2>Responsive Landing Page 2019</h2>
             <p>It is a long established fact that a reader will be distracted by the readable content of a page when
                 looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
                 of letters, as opposed to using 'Content here, content here', making it look</p>
-            <label for="subscribe">Subscribe our Newsletter</label>
-            <input type="text" id="subscribe" name="subscribe" placeholder="Enter You Email">
+        </div>
+        <div class="contact-form">
             <form action="#" method="POST">
                 @csrf
-                <button type="submit">Submit</button>
+                <label for="subscribe">Subscribe our Newsletter</label><br><br>
+                <input type="text" id="subscribe" name="subscribe" placeholder="Enter You Email">
+                <button type="submit" class="btn-submit">Submit</button>
             </form>
         </div>
     </section>
