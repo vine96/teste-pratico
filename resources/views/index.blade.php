@@ -141,7 +141,9 @@
                 @csrf
                 <label for="subscribe">Subscribe our Newsletter</label><br><br>
                 <input type="text" id="subscribe" name="subscribe" placeholder="Enter You Email">
-                <button type="submit" class="btn-submit">Submit</button>
+                <div class="div-submit-mobile">
+                    <button type="submit" class="btn-submit">Submit</button>
+                </div>
             </form>
         </div>
     </section>

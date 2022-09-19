@@ -260,6 +260,64 @@ body{
         display: flex;
         justify-content: center;
     }
+    #img-home img{
+        max-width: 700px;
+    }
+
+    #img-home{
+        float: right;
+        width: 65%;
+        margin-top: 10vh;
+    }
+
+    .alt{
+        position: absolute;
+        margin-top: 80px;
+        text-align: center;
+    }
+
+    #card-contact{
+        margin-top: 110vh;
+        background-color: #403F3F;
+        color: white;
+        padding: 100px;
+    }
+
+    .contact-info{
+        width: 50%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-info h2{
+        font-size: 30pt;
+        margin: 0;
+    }
+
+    .contact-form{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 8vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    .contact-form label{
+       margin-bottom: 20px;
+    }
+    .btn-submit{
+        padding: 20px 75px;
+        background-color: #D53711;
+        color: white;
+        border: none;
+        margin-left: -10px;
+    }
+    #subscribe{
+        padding: 20px 75px;
+        border: none;
+    }
 }
 
 .btn-read{
@@ -270,69 +328,8 @@ body{
     border: none;
 }
 
-#img-home img{
-    max-width: 700px;
-}
-
-#img-home{
-    float: right;
-    width: 65%;
-    margin-top: 10vh;
-}
-
-.alt{
-    position: absolute;
-    margin-top: 80px;
-    text-align: center;
-}
-
-#card-contact{
-    margin-top: 110vh;
-    background-color: #403F3F;
-    color: white;
-    padding: 100px;
-}
-
-.contact-info{
-    width: 50%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contact-info h2{
-    font-size: 30pt;
-    margin: 0;
-}
-
-.contact-form{
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 8vh;
-    display: flex;
-    justify-content: center;
-}
-
-.contact-form label{
-   margin-bottom: 20px;
-}
-
-#subscribe{
-    padding: 20px 75px;
-    border: none;
-}
-
 #subscribe ::placeholder{
     text-align: start !important;
-}
-
-.btn-submit{
-    padding: 20px 75px;
-    background-color: #D53711;
-    color: white;
-    border: none;
-    margin-left: -10px;
 }
 
 footer{

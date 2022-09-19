@@ -191,11 +191,10 @@
     }
     #note{
         background-color: #3699C7;
-        width: 15%;
+        width: 70%;
         color: white;
         padding: 25px 50px 50px 50px;
-        margin-top: 20vh;
-        position: absolute;
+        margin-top: 10vh;
     }
 
     #note h3{
@@ -204,13 +203,74 @@
         background-color:  #D53711;
         padding: 10px;
         width: 40px;
-        border-radius: 50px;
+        height: 40px;
+        border-radius: 40px;
         text-align: center;
         margin: 0;
         margin-top: -50px;
     }
 
     .number{
+        display: flex;
+        justify-content: center;
+    }
+    #img-home img{
+        max-width: 320px;
+    }
+
+    #img-home{
+        width: 100%;
+        margin-top: 15vh;
+    }
+
+    .alt{
+        position: absolute;
+        margin-top: 80px;
+        text-align: center;
+    }
+
+    #card-contact{
+        margin-top: 5vh;
+        background-color: #403F3F;
+        color: white;
+        padding: 20px;
+    }
+
+    .contact-info{
+        width: 80%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-info h2{
+        font-size: 20pt;
+        margin: 0;
+    }
+
+    .contact-form{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    .contact-form label{
+       margin-bottom: 20px;
+    }
+    .btn-submit{
+        padding: 20px 75px;
+        background-color: #D53711;
+        color: white;
+        border: none;
+    }
+    #subscribe{
+        padding: 20px 75px;
+        border: none;
+    }
+    .div-submit-mobile{
         display: flex;
         justify-content: center;
     }
