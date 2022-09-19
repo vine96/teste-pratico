@@ -22,11 +22,6 @@ body{
     margin-left: 200px;
 }
 
-#navbar nav{
-    float: right;
-    margin-right: 200px;
-}
-
 #navbar li{
     margin: 0 25px;
 }
@@ -318,6 +313,11 @@ body{
         padding: 20px 75px;
         border: none;
     }
+    #navbar nav{
+        float: right;
+        margin-right: 200px;
+    }
+
 }
 
 .btn-read{

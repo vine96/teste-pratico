@@ -48,6 +48,8 @@
 
     .bi-house-door{
         font-size: 30pt;
+        margin: 0 !important;
+        margin-left: 25px !important;
     }
     .explore{
         font-size: 16pt;
@@ -274,4 +276,12 @@
         display: flex;
         justify-content: center;
     }
+    #navbar nav{
+        margin-right: 80px;
+        left: 0;
+    }
+    #navbar-list{
+        padding: 0;
+    }
+
 }
