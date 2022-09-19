@@ -88,7 +88,7 @@
 
     .slider {
         display: block;
-        height: 400px;
+        height: 300px;
         width: 400px;
         margin: auto;
         margin-top: 20px;
@@ -155,5 +155,63 @@
         opacity: 1;
         visibility: visible;
         z-index: 10;
+    }
+    /* terceiro card */
+    #card-builds{
+        height: 60vh;
+        background-image: url('../img/8.jpg');
+        background-size: cover;
+        padding-top: 100px;
+    }
+
+    #center-content{
+        width: 60%;
+        background-color: white;
+        opacity: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        padding: 25px 25px 25px 25px;
+    }
+
+    #center-content h2{
+        font-size: 15pt;
+    }
+
+    .home-internal{
+        padding-top: 50px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-internal h2{
+        font-size: 20pt;
+        text-align: center;
+    }
+    #note{
+        background-color: #3699C7;
+        width: 15%;
+        color: white;
+        padding: 25px 50px 50px 50px;
+        margin-top: 20vh;
+        position: absolute;
+    }
+
+    #note h3{
+        font-size: 20pt;
+        font-weight: 900;
+        background-color:  #D53711;
+        padding: 10px;
+        width: 40px;
+        border-radius: 50px;
+        text-align: center;
+        margin: 0;
+        margin-top: -50px;
+    }
+
+    .number{
+        display: flex;
+        justify-content: center;
     }
 }
