@@ -47,4 +47,16 @@ class PagesController extends Controller
         Session::flash('alert', 'success|Banner atualizado com sucesso!');
         return redirect()->back();
     }
+
+    public function saveCenterBar(Request $request){
+        $centerbar = new Pages();
+        $centerbar->center_title = $request->center_title;
+        $centerbar->center_item_1 = $request->center_item_1;
+        $centerbar->center_item_2 = $request->center_item_2;
+        $centerbar->center_item_3 = $request->center_item_3;
+        $centerbar->save();
+
+        Session::flash('alert', 'success|Centerbar atualizado com sucesso!');
+        return redirect()->back();
+    }
 }

@@ -20,10 +20,17 @@ return new class extends Migration
             $table->longText('link_nav_1')->nullable();
             $table->longText('link_nav_2')->nullable();
             $table->longText('link_nav_3')->nullable();
+
             // Banner
             $table->string('title_banner')->nullable();
             $table->string('btn_banner')->nullable();
             $table->longText('article_banner')->nullable();
+
+            //Centerbar
+            $table->string('center_title')->nullable();
+            $table->string('center_item_1')->nullable();
+            $table->string('center_item_2')->nullable();
+            $table->string('center_item_3')->nullable();
 
             $table->timestamps();
         });

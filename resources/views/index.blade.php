@@ -89,10 +89,17 @@
         <section id="card-info">
             <div class="info-list">
                 <ul>
-                    <li class="explore">Explore community</li>
-                    <li><i class="bi bi-1-circle"></i> 40 lifestyle Awards</li>
-                    <li><i class="bi bi-2-circle"></i> Happy Family</li>
-                    <li><i class="bi bi-3-circle"></i> 20 Years</li>
+                    @if ($pages)
+                        <li class="explore">{{ $pages->center_title ? $pages->center_title : $not }}</li>
+                        <li><i class="bi bi-1-circle"></i>{{ $pages->center_item_1 ? $pages->center_item_1 : $not }}</li>
+                        <li><i class="bi bi-2-circle"></i>{{ $pages->center_item_2 ? $pages->center_item_2 : $not }}</li>
+                        <li><i class="bi bi-3-circle"></i>{{ $pages->center_item_3 ? $pages->center_item_3 : $not }}</li>
+                    @else
+                        <li class="explore">{{ $not }}</li>
+                        @for ($i=1;$i<=3;$i++)
+                            <li><i class="bi bi-{{$i}}-circle"></i>{{ $not }}</li>
+                        @endfor
+                    @endif
                 </ul>
             </div>
         </section>

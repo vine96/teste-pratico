@@ -22,5 +22,6 @@ Auth::routes();
 Route::get('/banner', [App\Http\Controllers\PagesController::class, 'indexBanner'])->name('banner');
 Route::post('/salvar-nav', [App\Http\Controllers\PagesController::class, 'saveNavbar'])->name('saveNavbar');
 Route::post('/salvar-banner', [App\Http\Controllers\PagesController::class, 'saveBanner'])->name('saveBanner');
+Route::post('/salvar-centerbar', [App\Http\Controllers\PagesController::class, 'saveCenterbar'])->name('saveCenterbar');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
