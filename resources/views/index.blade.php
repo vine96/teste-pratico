@@ -142,15 +142,25 @@
         </div>
     </section>
 
-    {{-- terceiro card --}}
-    <section id="card-builds">
+    {{-- segundo card --}}
+    @if ($images_secondcard)
+        <section id="card-builds" style="background-image: url('../storage/images/{{ $images_secondcard->image }}');">
+    @else
+        <section id="card-builds" style="background-image: url('../img/8.jpg');">
+    @endif
         <div>
             <div id="center-content">
-                <h2>FIND YOUR HOUSE WITHOUT ANY DIFFICULTIES</h2>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters,</p>
-                <button class="btn-read">Read More</button>
+                @if ($pages)
+                    <h2>{{ $pages->title_second_card ? $pages->title_second_card : $not }}</h2>
+                    <p>{{ $pages->article_second_card ? $pages->article_second_card : $not }}</p>
+                    <button class="btn-read">
+                        {{ $pages->btn_second_card ? $pages->btn_second_card : $not }}
+                    </button>
+                @else
+                    <h2>{{ $not }}</h2>
+                    <p>{{ $not }}</p>
+                    <button class="btn-read">{{ $not }}</button>
+                @endif
             </div>
         </div>
     </section>

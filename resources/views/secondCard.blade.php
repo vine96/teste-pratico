@@ -51,6 +51,12 @@
                                 <label for="image_first_card">Imagem</label>
                                 <input type="file" name="image_second_card" class="form-control" id="image_second_card">
                             </div>
+                            @if ($image_second)
+                                <div class="col-md-3 d-flex align-items-end">
+                                    <a href="{{ route('delImageFirst', $image_second->id) }}" class="btn btn-danger" id="delImageFirst" onclick="return confirm('Deseja realmente excluir esta imagem?')">Excluir</a>
+                                    <a href="{{ route('downImageFirst', $image_second->id) }}" class="btn btn-info ml-2" type="button" id="downImageFirst">Download</a>
+                                </div>
+                            @endif
                         </div>
                         <button class="btn btn-primary mt-3">Salvar</button>
                     </form>

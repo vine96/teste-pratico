@@ -198,7 +198,6 @@ body{
     /* terceiro card */
     #card-builds{
         height: 75vh;
-        background-image: url('../img/8.jpg');
         background-size: cover;
         margin-top: 25vh;
         padding-top: 180px;
