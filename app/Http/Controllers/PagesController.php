@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Session;
 
 class PagesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function index(){
         return view('index', [
@@ -34,6 +34,17 @@ class PagesController extends Controller
         $navbar->save();
 
         Session::flash('alert', 'success|Navbar atualizado com sucesso!');
+        return redirect()->back();
+    }
+
+    public function saveBanner(Request $request){
+        $banner = new Pages();
+        $banner->title_banner = $request->title_banner;
+        $banner->btn_banner = $request->btn_banner;
+        $banner->article_banner = $request->article_banner;
+        $banner->save();
+
+        Session::flash('alert', 'success|Banner atualizado com sucesso!');
         return redirect()->back();
     }
 }

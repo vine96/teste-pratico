@@ -17,12 +17,31 @@
     {{-- navbar --}}
     <main id="main-background">
     <header id="navbar">
-        <i class="{{ $pages->icon_nav }}"></i>
+        @php
+            $not = 'Sem informação';
+        @endphp
+
+        @if ($pages)
+            @if ($pages->icon_nav)
+                <i class="{{ $pages->icon_nav }}"></i>
+            @else
+                <i class="">{{ $not }}</i>
+            @endif
+        @else
+            <i class="">{{ $not }}</i>
+        @endif
         <nav>
             <ul id="navbar-list">
-                <li><a href="">{{ $pages->link_nav_1 }}</a></li>
-                <li><a href="">{{ $pages->link_nav_2 }}</a></li>
-                <li><a href="">{{ $pages->link_nav_3 }}</a></li>
+                @if ($pages)
+                    <li><a href="">{{ $pages->link_nav_1 ? $pages->link_nav_1 : $not }}</a></li>
+                    <li><a href="">{{ $pages->link_nav_2 ? $pages->link_nav_2 : $not }}</a></li>
+                    <li><a href="">{{ $pages->link_nav_3 ? $pages->link_nav_3 : $not }}</a></li>
+                @else
+                    @for ($i=1;$i<=3;$i++)
+                        <li><a href="">{{ $not }}</a></li>
+                    @endfor
+                @endif
+
                 @guest
                     <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     <li><a class="nav-link" href="{{ route('register') }}">Registrar</a></li>
@@ -51,13 +70,19 @@
 
         {{-- Primeiro card --}}
         <div id="card-init">
-            <h1>LANDING PAGE FOR REAL ESTATE</h1>
-            <div>
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem ipsum is that it has a more-or-less normal distribution
-                    of letters,</p>
-                <button class="btn-read">Read More</button>
-            </div>
+            @if ($pages)
+                <h1>{{ $pages->title_banner ? $pages->title_banner : $not }}</h1>
+                <div>
+                    <p>{{ $pages->article_banner ? $pages->article_banner : $not }}</p>
+                    <button class="btn-read">{{ $pages->btn_banner ? $pages->btn_banner : $not }}</button>
+                </div>
+            @else
+                <h1>{{ $not }}</h1>
+                <div>
+                    <p>{{ $not }}</p>
+                    <button class="btn-read">{{ $not }}</button>
+                </div>
+            @endif
         </div>
 
         {{-- Faixa central com infos --}}

@@ -9,6 +9,10 @@ class Pages extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'icon_nav','link_nav_1','link_nav_2','link_nav_3'
+        // Navbar
+        'icon_nav','link_nav_1','link_nav_2','link_nav_3',
+
+        // Banner
+        'title_banner', 'article_banner', 'btn_banner'
     ];
 }
