@@ -42,15 +42,39 @@
                     <h5>Imagens</h5>
                     <form action="{{ route('saveFirstcardImages') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="row" id="div-firstcard-0">
-                            <div class="col-md-4">
-                                <label for="image_first_card">Imagem 1</label>
-                                <input type="file" name="image_first_card[]" class="form-control" value="{{ $pages ? $pages->image_first_card : null }}" id="image_first_card-0" required>
-                            </div>
-                            <div class="col-md-3 d-flex align-items-end">
-                                <button class="btn btn-primary" type="button" id="addImageFirst">Adicionar</button>
-                            </div>
-                            <div class="col-md-5"></div>
+                        <div class="row mt-3" id="div-firstcard-0">
+                            @if (count($images) > 0)
+                                @foreach ($images as $index => $image)
+                                    <div class="col-md-4">
+                                        <label for="image_first_card">Imagem {{ $index+1 }}</label>
+                                        <input type="file" name="image_first_card[]" value="{{ $image->image }}" class="form-control" id="image_first_card-{{ $index+1 }}">
+                                    </div>
+                                    @if ($index == 0)
+                                        <div class="col-md-3 d-flex align-items-end">
+                                            <button class="btn btn-primary" type="button" id="addImageFirst">Adicionar</button>
+                                            <a href="{{ route('delImageFirst', $image->id) }}" class="btn btn-danger ml-2" id="delImageFirst" onclick="return confirm('Deseja realmente excluir esta imagem?')">Excluir</a>
+                                            <a href="{{ route('downImageFirst', $image->id) }}" class="btn btn-info ml-2" type="button" id="downImageFirst">Download</a>
+                                        </div>
+                                        <div class="col-md-5"></div>
+                                    @endif
+                                    @if ($index != 0)
+                                        <div class="col-md-2 d-flex align-items-end">
+                                            <a href="{{ route('delImageFirst', $image->id) }}" class="btn btn-danger" id="delImageFirst" onclick="return confirm('Deseja realmente excluir esta imagem?')">Excluir</a>
+                                            <a href="{{ route('downImageFirst', $image->id) }}" class="btn btn-info ml-2" id="downImageFirst">Download</a>
+                                        </div>
+                                        <div class="col-md-6"></div>
+                                    @endif
+                                @endforeach
+                            @else
+                                <div class="col-md-4">
+                                    <label for="image_first_card">Imagem 1</label>
+                                    <input type="file" name="image_first_card[]" class="form-control" id="image_first_card-0">
+                                </div>
+                                <div class="col-md-3 d-flex align-items-end">
+                                    <button class="btn btn-primary" type="button" id="addImageFirst">Adicionar</button>
+                                </div>
+                                <div class="col-md-5"></div>
+                            @endif
                         </div>
                         <button class="btn btn-primary mt-3">Salvar</button>
                     </form>
@@ -59,7 +83,13 @@
         </div>
     </div>
 <script>
-    var count = 1;
+    var count = 0;
+    @if (count($images) > 0)
+        count += {{ count($images) }};
+    @else
+        count += 1;
+    @endif
+
     $('#addImageFirst').on('click', function(){
         count++
         $('#div-firstcard-0').append(

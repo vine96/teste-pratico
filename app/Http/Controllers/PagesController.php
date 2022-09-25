@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Images;
 use App\Models\Pages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class PagesController extends Controller
 {
@@ -96,5 +98,25 @@ class PagesController extends Controller
 
         Session::flash('alert', 'success|Imagens do Primeiro card atualizadas com sucesso!');
         return redirect()->back();
+    }
+
+    public function delImageFirst($id){
+        $image = Images::find($id);
+        unlink(public_path('storage\images\\'.$image->image));
+        $image->delete();
+
+        Session::flash('alert', 'success|Imagem deletada com sucesso!');
+        return redirect()->back();
+    }
+
+    public function downImageFirst($id){
+        $image = Images::find($id);
+        $path = public_path('storage\images\\'.$image->image);
+
+        if (file_exists($path)) {
+            return Response::download($path);
+        }else{
+            Session::flash('alert', 'error|Houve algum problema ao realizar o download da imagem.');
+        }
     }
 }

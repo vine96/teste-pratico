@@ -28,5 +28,7 @@ Route::post('/salvar-centerbar', [App\Http\Controllers\PagesController::class, '
 Route::get('/primeiro-card', [App\Http\Controllers\PagesController::class, 'indexFirstcard'])->name('indexFirstcard');
 Route::post('/primeiro-card/salvar', [App\Http\Controllers\PagesController::class, 'saveFirstcard'])->name('saveFirstcard');
 Route::post('/primeiro-card/salvar-imagens', [App\Http\Controllers\PagesController::class, 'saveFirstcardImages'])->name('saveFirstcardImages');
+Route::get('/primeiro-card/excluir/{id}', [App\Http\Controllers\PagesController::class, 'delImageFirst'])->name('delImageFirst');
+Route::get('/primeiro-card/download/{id}', [App\Http\Controllers\PagesController::class, 'downImageFirst'])->name('downImageFirst');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
