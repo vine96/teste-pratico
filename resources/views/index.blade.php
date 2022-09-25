@@ -23,6 +23,7 @@
                 <li><a href="">Contact us</a></li>
                 <li><a href="">Call: 1234567890</a></li>
                 <li><a href="">Email: demo@gmail.com</a></li>
+                <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
             </ul>
         </nav>
     </header>
