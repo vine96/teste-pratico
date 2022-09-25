@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+// Banner routes
+Route::get('/banner', [App\Http\Controllers\PagesController::class, 'indexBanner'])->name('banner');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
