@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5>Conteúdo</h5>
-                    <form action="{{ route('saveFirstcard') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('saveFirstcard') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -33,7 +33,16 @@
                                 <input type="text" name="article_first_card" class="form-control" value="{{ $pages ? $pages->article_first_card : null }}" id="article_first_card" required>
                             </div>
                         </div>
-                        <div class="row mt-3" id="div-firstcard-0">
+                        <button class="btn btn-primary mt-3">Salvar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5>Imagens</h5>
+                    <form action="{{ route('saveFirstcardImages') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row" id="div-firstcard-0">
                             <div class="col-md-4">
                                 <label for="image_first_card">Imagem 1</label>
                                 <input type="file" name="image_first_card[]" class="form-control" value="{{ $pages ? $pages->image_first_card : null }}" id="image_first_card-0" required>

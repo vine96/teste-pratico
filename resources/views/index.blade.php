@@ -109,38 +109,35 @@
     {{-- Carrosel --}}
     <section id="card-carrosel">
         <div class="carrosel-div">
-            <h2>OUR HOME AND FLATS</h2>
-            <div class="p">
-                <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                    of letters,</p>
-            </div>
+            @if ($pages)
+                <h2>{{ $pages->title_first_card ? $pages->title_first_card : $not }}</h2>
+                <div class="p">
+                    <p>{{ $pages->article_first_card ? $pages->article_first_card : $not }}</p>
+                </div>
+            @else
+                <h2>{{ $not }}</h2>
+                <div class="p">
+                    <p>{{ $not }}</p>
+                </div>
+            @endif
             <ul class="slider">
-                <li>
-                      <input type="radio" id="slide1" name="slide" checked>
-                      <label for="slide1"></label>
-                      <img src="{{ URL::asset("img/1.jpg") }}" />
-                </li>
-                <li>
-                      <input type="radio" id="slide2" name="slide">
-                      <label for="slide2"></label>
-                      <img src="{{ URL::asset("img/2.jpg") }}" />
-                </li>
-                <li>
-                      <input type="radio" id="slide3" name="slide">
-                      <label for="slide3"></label>
-                      <img src="{{ URL::asset("img/5.jpg") }}" />
-                </li>
-                <li>
-                    <input type="radio" id="slide4" name="slide">
-                    <label for="slide4"></label>
-                    <img src="{{ URL::asset("img/6.jpg") }}" />
-                </li>
-                <li>
-                    <input type="radio" id="slide5" name="slide">
-                    <label for="slide5"></label>
-                    <img src="{{ URL::asset("img/7.jpg") }}" />
-                </li>
+                @if (count($images_firstcard) > 0)
+                    @foreach ($images_firstcard as $index => $image)
+                        <li>
+                            <input type="radio" id="slide{{ $index+1 }}" name="slide" checked>
+                            <label for="slide{{$index+1}}"></label>
+                            <img src="{{ URL::asset("storage/images/".$image->image) }}" />
+                        </li>
+                    @endforeach
+                @else
+                    @for ($i=1;$i<=5;$i++)
+                        <li>
+                            <input type="radio" id="slide{{ $i }}" name="slide" checked>
+                            <label for="slide{{ $i }}"></label>
+                            <img src="{{ URL::asset("img/".$i.".jpg") }}" />
+                        </li>
+                    @endfor
+                @endif
             </ul>
         </div>
     </section>

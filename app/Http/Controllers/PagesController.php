@@ -16,7 +16,8 @@ class PagesController extends Controller
 
     public function index(){
         return view('index', [
-            'pages' => Pages::first()
+            'pages' => Pages::first(),
+            'images_firstcard' => Images::where('content', 'first')->get()
         ]);
     }
 
@@ -63,7 +64,8 @@ class PagesController extends Controller
 
     public function indexFirstcard(){
         return view('firstCard', [
-            'pages' => Pages::first()
+            'pages' => Pages::first(),
+            'images' => Images::where('content', 'first')->get()
         ]);
     }
 
@@ -73,6 +75,11 @@ class PagesController extends Controller
         $firstcard->article_first_card = $request->article_first_card;
         $firstcard->save();
 
+        Session::flash('alert', 'success|Conteúdo do Primeiro card atualizado com sucesso!');
+        return redirect()->back();
+    }
+
+    public function saveFirstcardImages(Request $request){
         if($request->image_first_card){
             foreach($request->image_first_card as $image){
               $img_ext = $image->extension();
@@ -87,7 +94,7 @@ class PagesController extends Controller
             }
         }
 
-        Session::flash('alert', 'success|Primeiro card atualizado com sucesso!');
+        Session::flash('alert', 'success|Imagens do Primeiro card atualizadas com sucesso!');
         return redirect()->back();
     }
 }
