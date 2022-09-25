@@ -6,14 +6,13 @@
     <h1 class="m-0 text-dark">Estilização banner</h1>
 @stop
 
-@if (Session::has('alert'))
-    <div class="mt-3 alert alert-{{ explode('|', Session::get('alert'))[0] ?? 'info' }} alert-dismissible fade show">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        {{ explode('|', Session::get('alert'))[1] }}
-    </div>
-@endif
-
 @section('content')
+    @if (Session::has('alert'))
+        <div class="mt-3 alert alert-{{ explode('|', Session::get('alert'))[0] ?? 'info' }} alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            {{ explode('|', Session::get('alert'))[1] }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card">

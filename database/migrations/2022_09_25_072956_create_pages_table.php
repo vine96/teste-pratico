@@ -32,6 +32,10 @@ return new class extends Migration
             $table->string('center_item_2')->nullable();
             $table->string('center_item_3')->nullable();
 
+            //Firstcard
+            $table->string('title_first_card')->nullable();
+            $table->longText('article_first_card')->nullable();
+
             $table->timestamps();
         });
     }

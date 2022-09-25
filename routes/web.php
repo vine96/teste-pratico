@@ -24,4 +24,8 @@ Route::post('/salvar-nav', [App\Http\Controllers\PagesController::class, 'saveNa
 Route::post('/salvar-banner', [App\Http\Controllers\PagesController::class, 'saveBanner'])->name('saveBanner');
 Route::post('/salvar-centerbar', [App\Http\Controllers\PagesController::class, 'saveCenterbar'])->name('saveCenterbar');
 
+// Firstcard routes
+Route::get('/primeiro-card', [App\Http\Controllers\PagesController::class, 'indexFirstcard'])->name('indexFirstcard');
+Route::post('/primeiro-card/salvar', [App\Http\Controllers\PagesController::class, 'saveFirstcard'])->name('saveFirstcard');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

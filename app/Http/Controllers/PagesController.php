@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Images;
 use App\Models\Pages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -48,7 +49,7 @@ class PagesController extends Controller
         return redirect()->back();
     }
 
-    public function saveCenterBar(Request $request){
+    public function saveCenterbar(Request $request){
         $centerbar = new Pages();
         $centerbar->center_title = $request->center_title;
         $centerbar->center_item_1 = $request->center_item_1;
@@ -57,6 +58,36 @@ class PagesController extends Controller
         $centerbar->save();
 
         Session::flash('alert', 'success|Centerbar atualizado com sucesso!');
+        return redirect()->back();
+    }
+
+    public function indexFirstcard(){
+        return view('firstCard', [
+            'pages' => Pages::first()
+        ]);
+    }
+
+    public function saveFirstcard(Request $request){
+        $firstcard = new Pages();
+        $firstcard->title_first_card = $request->title_first_card;
+        $firstcard->article_first_card = $request->article_first_card;
+        $firstcard->save();
+
+        if($request->image_first_card){
+            foreach($request->image_first_card as $image){
+              $img_ext = $image->extension();
+              $imgName = uniqid() . '.' . $img_ext;
+              $path = base_path() . '/public/storage/images/';
+              $image->move($path, $imgName);
+
+              $imageFirstcard = new Images();
+              $imageFirstcard->image = $imgName;
+              $imageFirstcard->content = 'first';
+              $imageFirstcard->save();
+            }
+        }
+
+        Session::flash('alert', 'success|Primeiro card atualizado com sucesso!');
         return redirect()->back();
     }
 }
