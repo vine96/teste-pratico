@@ -22,6 +22,9 @@ class Pages extends Model
         'title_first_card', 'article_first_card',
 
         //Secondcard
-        'title_second_card', 'article_second_card', 'btn_second_card'
+        'title_second_card', 'article_second_card', 'btn_second_card',
+
+        //Infocard
+        'title_info_card', 'article_info_card', 'btn_info_card'
     ];
 }

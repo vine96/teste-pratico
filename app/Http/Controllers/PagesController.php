@@ -7,7 +7,6 @@ use App\Models\Pages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Storage;
 
 class PagesController extends Controller
 {
@@ -74,6 +73,13 @@ class PagesController extends Controller
         ]);
     }
 
+    public function indexInfocard(){
+        return view('infoCard', [
+            'pages' => Pages::first(),
+            'image_info' => Images::where('content', 'last')->first()
+        ]);
+    }
+
     public function saveFirstcard(Request $request){
         $firstcard = new Pages();
         $firstcard->title_first_card = $request->title_first_card;
@@ -92,6 +98,17 @@ class PagesController extends Controller
         $secondcard->save();
 
         Session::flash('alert', 'success|Conteúdo do Segundo card atualizado com sucesso!');
+        return redirect()->back();
+    }
+
+    public function saveInfocard(Request $request){
+        $infocard = new Pages();
+        $infocard->title_info_card = $request->title_info_card;
+        $infocard->article_info_card = $request->article_info_card;
+        $infocard->btn_info_card = $request->btn_info_card;
+        $infocard->save();
+
+        Session::flash('alert', 'success|Conteúdo do card de Informações atualizado com sucesso!');
         return redirect()->back();
     }
 
@@ -129,6 +146,24 @@ class PagesController extends Controller
         }
 
         Session::flash('alert', 'success|Imagem do Segundo card atualizada com sucesso!');
+        return redirect()->back();
+    }
+
+    public function saveInfocardImage(Request $request){
+        $image = $request->image_info_card;
+        if($request->image_info_card){
+              $img_ext = $image->extension();
+              $imgName = uniqid() . '.' . $img_ext;
+              $path = base_path() . '/public/storage/images/';
+              $image->move($path, $imgName);
+
+              $imageInfocard = new Images();
+              $imageInfocard->image = $imgName;
+              $imageInfocard->content = 'second';
+              $imageInfocard->save();
+        }
+
+        Session::flash('alert', 'success|Imagem do card de Informações atualizada com sucesso!');
         return redirect()->back();
     }
 
