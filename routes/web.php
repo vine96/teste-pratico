@@ -37,6 +37,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/download/{id}', [App\Http\Controllers\PagesController::class, 'downImageFirst'])->name('downImageFirst');
     });
 
+    // Secondcard routes
+    Route::prefix('/segundo-card')->group(function () {
+        Route::get('/', [App\Http\Controllers\PagesController::class, 'indexSecondcard'])->name('indexSecondcard');
+        Route::post('/salvar', [App\Http\Controllers\PagesController::class, 'saveSecondcard'])->name('saveSecondcard');
+        Route::post('/salvar-imagem', [App\Http\Controllers\PagesController::class, 'saveSecondcardImage'])->name('saveSecondcardImage');
+        Route::get('/excluir/{id}', [App\Http\Controllers\PagesController::class, 'delImageSecond'])->name('delImageSecond');
+        Route::get('/download/{id}', [App\Http\Controllers\PagesController::class, 'downImageSecond'])->name('downImageSecond');
+    });
+
 });
 
 

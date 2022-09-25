@@ -36,6 +36,11 @@ return new class extends Migration
             $table->string('title_first_card')->nullable();
             $table->longText('article_first_card')->nullable();
 
+            //Secondcard
+            $table->string('title_second_card')->nullable();
+            $table->longText('article_second_card')->nullable();
+            $table->string('btn_second_card')->nullable();
+
             $table->timestamps();
         });
     }

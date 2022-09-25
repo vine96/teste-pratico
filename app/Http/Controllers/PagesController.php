@@ -11,11 +11,6 @@ use Illuminate\Support\Facades\Storage;
 
 class PagesController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
     public function index(){
         return view('index', [
             'pages' => Pages::first(),
@@ -71,6 +66,13 @@ class PagesController extends Controller
         ]);
     }
 
+    public function indexSecondcard(){
+        return view('secondCard', [
+            'pages' => Pages::first(),
+            'images' => Images::where('content', 'second')->get()
+        ]);
+    }
+
     public function saveFirstcard(Request $request){
         $firstcard = new Pages();
         $firstcard->title_first_card = $request->title_first_card;
@@ -78,6 +80,17 @@ class PagesController extends Controller
         $firstcard->save();
 
         Session::flash('alert', 'success|Conteúdo do Primeiro card atualizado com sucesso!');
+        return redirect()->back();
+    }
+
+    public function saveSecondcard(Request $request){
+        $secondcard = new Pages();
+        $secondcard->title_second_card = $request->title_second_card;
+        $secondcard->article_second_card = $request->article_second_card;
+        $secondcard->btn_second_card = $request->btn_second_card;
+        $secondcard->save();
+
+        Session::flash('alert', 'success|Conteúdo do Segundo card atualizado com sucesso!');
         return redirect()->back();
     }
 
@@ -94,6 +107,24 @@ class PagesController extends Controller
               $imageFirstcard->content = 'first';
               $imageFirstcard->save();
             }
+        }
+
+        Session::flash('alert', 'success|Imagens do Primeiro card atualizadas com sucesso!');
+        return redirect()->back();
+    }
+
+    public function saveSecondcardImage(Request $request){
+        $image = $request->image_second_card;
+        if($request->image_second_card){
+              $img_ext = $image->extension();
+              $imgName = uniqid() . '.' . $img_ext;
+              $path = base_path() . '/public/storage/images/';
+              $image->move($path, $imgName);
+
+              $imageSecondcard = new Images();
+              $imageSecondcard->image = $imgName;
+              $imageSecondcard->content = 'second';
+              $imageSecondcard->save();
         }
 
         Session::flash('alert', 'success|Imagens do Primeiro card atualizadas com sucesso!');

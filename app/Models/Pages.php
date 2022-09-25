@@ -19,6 +19,9 @@ class Pages extends Model
         'center_title', 'center_item_1', 'center_item_2', 'center_item_3',
 
         //Firstcard
-        'title_first_card', 'article_first_card'
+        'title_first_card', 'article_first_card',
+
+        //Secondcard
+        'title_second_card', 'article_second_card', 'btn_second_card'
     ];
 }
