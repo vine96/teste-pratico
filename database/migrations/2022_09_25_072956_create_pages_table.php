@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
+            // Parte da navbar
+            $table->string('icon_nav')->nullable();
+            $table->longText('link_nav_1')->nullable();
+            $table->longText('link_nav_2')->nullable();
+            $table->longText('link_nav_3')->nullable();
             $table->timestamps();
         });
     }

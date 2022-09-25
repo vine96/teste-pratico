@@ -17,12 +17,12 @@
     {{-- navbar --}}
     <main id="main-background">
     <header id="navbar">
-        <i class="bi bi-house-door"></i>
+        <i class="{{ $pages->icon_nav }}"></i>
         <nav>
             <ul id="navbar-list">
-                <li><a href="">Contact us</a></li>
-                <li><a href="">Call: 1234567890</a></li>
-                <li><a href="">Email: demo@gmail.com</a></li>
+                <li><a href="">{{ $pages->link_nav_1 }}</a></li>
+                <li><a href="">{{ $pages->link_nav_2 }}</a></li>
+                <li><a href="">{{ $pages->link_nav_3 }}</a></li>
                 @guest
                     <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     <li><a class="nav-link" href="{{ route('register') }}">Registrar</a></li>

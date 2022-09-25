@@ -14,13 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [App\Http\Controllers\PagesController::class, 'index'])->name('index');
 
 Auth::routes();
 
 // Banner routes
 Route::get('/banner', [App\Http\Controllers\PagesController::class, 'indexBanner'])->name('banner');
+Route::post('/salvar-nav', [App\Http\Controllers\PagesController::class, 'saveNavbar'])->name('saveNavbar');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
