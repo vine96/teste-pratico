@@ -14,7 +14,8 @@ class PagesController extends Controller
         return view('index', [
             'pages' => Pages::first(),
             'images_firstcard' => Images::where('content', 'first')->get(),
-            'images_secondcard' => Images::where('content', 'second')->first()
+            'images_secondcard' => Images::where('content', 'second')->first(),
+            'image_info' => Images::where('content', 'last')->first()
         ]);
     }
 
@@ -80,6 +81,12 @@ class PagesController extends Controller
         ]);
     }
 
+    public function indexContactcard(){
+        return view('contactCard', [
+            'pages' => Pages::first()
+        ]);
+    }
+
     public function saveFirstcard(Request $request){
         $firstcard = new Pages();
         $firstcard->title_first_card = $request->title_first_card;
@@ -109,6 +116,20 @@ class PagesController extends Controller
         $infocard->save();
 
         Session::flash('alert', 'success|Conteúdo do card de Informações atualizado com sucesso!');
+        return redirect()->back();
+    }
+
+    public function saveContactcard(Request $request){
+        $contactcard = new Pages();
+        $contactcard->title_contact_card = $request->title_contact_card;
+        $contactcard->article_contact_card = $request->article_contact_card;
+        $contactcard->label_contact_card = $request->label_contact_card;
+        $contactcard->placeholder_contact_card = $request->placeholder_contact_card;
+        $contactcard->btn_contact_card = $request->btn_contact_card;
+        $contactcard->footer_contact_card = $request->footer_contact_card;
+        $contactcard->save();
+
+        Session::flash('alert', 'success|Conteúdo do card de Contato atualizado com sucesso!');
         return redirect()->back();
     }
 
@@ -151,7 +172,7 @@ class PagesController extends Controller
 
     public function saveInfocardImage(Request $request){
         $image = $request->image_info_card;
-        if($request->image_info_card){
+        if($image){
               $img_ext = $image->extension();
               $imgName = uniqid() . '.' . $img_ext;
               $path = base_path() . '/public/storage/images/';
@@ -159,7 +180,7 @@ class PagesController extends Controller
 
               $imageInfocard = new Images();
               $imageInfocard->image = $imgName;
-              $imageInfocard->content = 'second';
+              $imageInfocard->content = 'last';
               $imageInfocard->save();
         }
 

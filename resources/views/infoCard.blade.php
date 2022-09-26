@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Edição de segundo card')
+@section('title', 'Edição do card de Informações')
 
 @section('content_header')
     <h1 class="m-0 text-dark">Estilização card de Informações</h1>
@@ -53,8 +53,8 @@
                             </div>
                             @if ($image_info)
                                 <div class="col-md-3 d-flex align-items-end">
-                                    <a href="{{ route('delImageFirst', $image_second->id) }}" class="btn btn-danger" id="delImageFirst" onclick="return confirm('Deseja realmente excluir esta imagem?')">Excluir</a>
-                                    <a href="{{ route('downImageFirst', $image_second->id) }}" class="btn btn-info ml-2" type="button" id="downImageFirst">Download</a>
+                                    <a href="{{ route('delImageFirst', $image_info->id) }}" class="btn btn-danger" id="delImageFirst" onclick="return confirm('Deseja realmente excluir esta imagem?')">Excluir</a>
+                                    <a href="{{ route('downImageFirst', $image_info->id) }}" class="btn btn-info ml-2" type="button" id="downImageFirst">Download</a>
                                 </div>
                             @endif
                         </div>

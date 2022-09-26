@@ -47,7 +47,7 @@
                     <li><a class="nav-link" href="{{ route('register') }}">Registrar</a></li>
                 @else
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/home" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
@@ -169,20 +169,33 @@
     <section id="card-home">
         <div class="home-internal">
             <div class="info-home">
-                <h2>A UNIQUE BALANCE OF LUXURY LIFE</h2>
+                @if ($pages)
+                    <h2>{{ $pages->title_info_card ? $pages->title_info_card : $not }}</h2>
+                @else
+                    <h2>{{ $not }}</h2>
+                @endif
                 <div id="note">
                     <div class="number">
                     <h3>01</h3>
                     </div>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                        when lookin at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                        distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-                    <div class="number">
-                        <button class="btn-read alt">See More</button>
-                    </div>
+                    @if ($pages)
+                        <p>{{ $pages->article_info_card ? $pages->article_info_card : $not }}</p>
+                        <div class="number">
+                            <button class="btn-read alt">{{ $pages->btn_info_card ? $pages->btn_info_card : $not }}</button>
+                        </div>
+                    @else
+                        <p>{{ $not }}</p>
+                        <div class="number">
+                            <button class="btn-read alt">{{ $not }}</button>
+                        </div>
+                    @endif
                 </div>
                 <div id="img-home">
-                    <img src="{{ URL::asset('img/8.jpg') }}" alt="Casa 8">
+                    @if ($image_info)
+                        <img src="{{ URL::asset("storage/images/".$image_info->image) }}" />
+                    @else
+                        <img src="{{ URL::asset('img/8.jpg') }}" alt="Casa 8">
+                    @endif
                 </div>
             </div>
         </div>

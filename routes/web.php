@@ -51,6 +51,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/salvar-imagem', [App\Http\Controllers\PagesController::class, 'saveInfocardImage'])->name('saveInfocardImage');
     });
 
+    // Contactcard routes
+    Route::prefix('/contato')->group(function () {
+        Route::get('/', [App\Http\Controllers\PagesController::class, 'indexContactcard'])->name('indexContactcard');
+        Route::post('/salvar', [App\Http\Controllers\PagesController::class, 'saveContactcard'])->name('saveContactcard');
+        Route::post('/enviar-email', [App\Http\Controllers\PagesController::class, 'sendEmail'])->name('sendEmail');
+    });
+
 });
 
 

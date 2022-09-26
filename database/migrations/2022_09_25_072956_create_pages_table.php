@@ -46,6 +46,14 @@ return new class extends Migration
             $table->longText('article_info_card')->nullable();
             $table->string('btn_info_card')->nullable();
 
+            //Contactcard
+            $table->string('title_contact_card')->nullable();
+            $table->longText('article_contact_card')->nullable();
+            $table->string('btn_contact_card')->nullable();
+            $table->string('label_contact_card')->nullable();
+            $table->string('placeholder_contact_card')->nullable();
+            $table->string('footer_contact_card')->nullable();
+
             $table->timestamps();
         });
     }
