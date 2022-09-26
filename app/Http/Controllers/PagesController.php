@@ -26,12 +26,22 @@ class PagesController extends Controller
     }
 
     public function saveNavbar(Request $request){
-        $navbar = new Pages();
-        $navbar->icon_nav = $request->link_icon;
-        $navbar->link_nav_1 = $request->link_url_1;
-        $navbar->link_nav_2 = $request->link_url_2;
-        $navbar->link_nav_3 = $request->link_url_3;
-        $navbar->save();
+        $navbarConsult = Pages::first();
+        if($navbarConsult){
+            $navbarConsult->update([
+                'icon_nav' => $request->link_icon,
+                'link_nav_1' => $request->link_url_1,
+                'link_nav_2' => $request->link_url_2,
+                'link_nav_3' => $request->link_url_3
+            ]);
+        }else{
+            $navbar = new Pages();
+            $navbar->icon_nav = $request->link_icon;
+            $navbar->link_nav_1 = $request->link_url_1;
+            $navbar->link_nav_2 = $request->link_url_2;
+            $navbar->link_nav_3 = $request->link_url_3;
+            $navbar->save();
+        }
 
         Session::flash('alert', 'success|Navbar atualizado com sucesso!');
         return redirect()->back();

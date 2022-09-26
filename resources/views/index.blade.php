@@ -204,20 +204,26 @@
     {{-- card de contato --}}
     <section id="card-contact">
         <div class="contact-info">
-            <h2>Free Multipurpose</h2>
-            <h2>Responsive Landing Page 2019</h2>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                of letters, as opposed to using 'Content here, content here', making it look</p>
+            @if ($pages)
+                <h2>{{ $pages->title_contact_card ? $pages->title_contact_card : $not }}</h2>
+                <p>{{ $pages->article_contact_card ? $pages->article_contact_card : $not }}</p>
+            @else
+                <h2>{{ $not }}</h2>
+                <p>{{ $not }}</p>
+            @endif
         </div>
         <div class="contact-form">
             <form action="#" method="POST">
                 @csrf
-                <label for="subscribe">Subscribe our Newsletter</label><br><br>
-                <input type="text" id="subscribe" name="subscribe" placeholder="Enter You Email">
-                {{-- <div class="div-submit-mobile"> --}}
-                    <button type="submit" class="btn-submit">Submit</button>
-                {{-- </div> --}}
+                @if ($pages)
+                    <label for="subscribe">{{ $pages->label_contact_card ? $pages->label_contact_card : $not }}</label><br><br>
+                    <input type="text" id="subscribe" name="subscribe" placeholder="{{ $pages->placeholder_contact_card ? $pages->placeholder_contact_card : $not }}">
+                    <button type="submit" class="btn-submit">{{ $pages->btn_contact_card ? $pages->btn_contact_card : $not }}</button>
+                @else
+                    <label for="subscribe">{{ $not }}</label><br><br>
+                    <input type="text" id="subscribe" name="subscribe" placeholder="{{ $not }}">
+                    <button type="submit" class="btn-submit">{{ $not }}</button>
+                @endif
             </form>
         </div>
     </section>
@@ -225,7 +231,11 @@
     {{-- footer --}}
     <footer>
         <div>
-            <p>Copyright 2022 - Developed by Vinícius Pecci</p>
+            @if ($pages)
+                <p>{{ $pages->footer_contact_card ? $pages->footer_contact_card : $not }}</p>
+            @else
+                <p>{{ $not }}</p>
+            @endif
         </div>
     </footer>
 
