@@ -20,6 +20,12 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
+    // Profile routes
+    Route::prefix('/perfil')->group(function () {
+        Route::get('/', [App\Http\Controllers\UserController::class, 'indexProfile'])->name('indexProfile');
+        Route::post('/salvar', [App\Http\Controllers\UserController::class, 'saveProfile'])->name('saveProfile');
+    });
+
     // Banner routes
     Route::prefix('/banner')->group(function () {
         Route::get('/', [App\Http\Controllers\PagesController::class, 'indexBanner'])->name('banner');
@@ -32,23 +38,23 @@ Route::middleware('auth')->group(function () {
     Route::prefix('/primeiro-card')->group(function () {
         Route::get('/', [App\Http\Controllers\PagesController::class, 'indexFirstcard'])->name('indexFirstcard');
         Route::post('/salvar', [App\Http\Controllers\PagesController::class, 'saveFirstcard'])->name('saveFirstcard');
-        Route::post('/salvar-imagens', [App\Http\Controllers\PagesController::class, 'saveFirstcardImages'])->name('saveFirstcardImages');
-        Route::get('/excluir/{id}', [App\Http\Controllers\PagesController::class, 'delImageFirst'])->name('delImageFirst');
-        Route::get('/download/{id}', [App\Http\Controllers\PagesController::class, 'downImageFirst'])->name('downImageFirst');
+        Route::post('/salvar-imagens', [App\Http\Controllers\ImagesController::class, 'saveFirstcardImages'])->name('saveFirstcardImages');
+        Route::get('/excluir/{id}', [App\Http\Controllers\ImagesController::class, 'delImageFirst'])->name('delImageFirst');
+        Route::get('/download/{id}', [App\Http\Controllers\ImagesController::class, 'downImageFirst'])->name('downImageFirst');
     });
 
     // Secondcard routes
     Route::prefix('/segundo-card')->group(function () {
         Route::get('/', [App\Http\Controllers\PagesController::class, 'indexSecondcard'])->name('indexSecondcard');
         Route::post('/salvar', [App\Http\Controllers\PagesController::class, 'saveSecondcard'])->name('saveSecondcard');
-        Route::post('/salvar-imagem', [App\Http\Controllers\PagesController::class, 'saveSecondcardImage'])->name('saveSecondcardImage');
+        Route::post('/salvar-imagem', [App\Http\Controllers\ImagesController::class, 'saveSecondcardImage'])->name('saveSecondcardImage');
     });
 
     // Infocard routes
     Route::prefix('/informacoes')->group(function () {
         Route::get('/', [App\Http\Controllers\PagesController::class, 'indexInfocard'])->name('indexInfocard');
         Route::post('/salvar', [App\Http\Controllers\PagesController::class, 'saveInfocard'])->name('saveInfocard');
-        Route::post('/salvar-imagem', [App\Http\Controllers\PagesController::class, 'saveInfocardImage'])->name('saveInfocardImage');
+        Route::post('/salvar-imagem', [App\Http\Controllers\ImagesController::class, 'saveInfocardImage'])->name('saveInfocardImage');
     });
 
     // Contactcard routes
