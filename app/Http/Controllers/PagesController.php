@@ -48,23 +48,42 @@ class PagesController extends Controller
     }
 
     public function saveBanner(Request $request){
-        $banner = new Pages();
-        $banner->title_banner = $request->title_banner;
-        $banner->btn_banner = $request->btn_banner;
-        $banner->article_banner = $request->article_banner;
-        $banner->save();
+        $bannerConsult = Pages::first();
+        if($bannerConsult){
+            $bannerConsult->update([
+                'title_banner' => $request->title_banner,
+                'btn_banner' => $request->btn_banner,
+                'article_banner' => $request->article_banner
+            ]);
+        }else{
+            $banner = new Pages();
+            $banner->title_banner = $request->title_banner;
+            $banner->btn_banner = $request->btn_banner;
+            $banner->article_banner = $request->article_banner;
+            $banner->save();
+        }
 
         Session::flash('alert', 'success|Banner atualizado com sucesso!');
         return redirect()->back();
     }
 
     public function saveCenterbar(Request $request){
-        $centerbar = new Pages();
-        $centerbar->center_title = $request->center_title;
-        $centerbar->center_item_1 = $request->center_item_1;
-        $centerbar->center_item_2 = $request->center_item_2;
-        $centerbar->center_item_3 = $request->center_item_3;
-        $centerbar->save();
+        $centerConsult = Pages::first();
+        if($centerConsult){
+            $centerConsult->update([
+                'center_title' => $request->center_title,
+                'center_item_1' => $request->center_item_1,
+                'center_item_2' => $request->center_item_2,
+                'center_item_3' => $request->center_item_3
+            ]);
+        }else{
+            $centerbar = new Pages();
+            $centerbar->center_title = $request->center_title;
+            $centerbar->center_item_1 = $request->center_item_1;
+            $centerbar->center_item_2 = $request->center_item_2;
+            $centerbar->center_item_3 = $request->center_item_3;
+            $centerbar->save();
+        }
 
         Session::flash('alert', 'success|Centerbar atualizado com sucesso!');
         return redirect()->back();
@@ -98,46 +117,84 @@ class PagesController extends Controller
     }
 
     public function saveFirstcard(Request $request){
-        $firstcard = new Pages();
-        $firstcard->title_first_card = $request->title_first_card;
-        $firstcard->article_first_card = $request->article_first_card;
-        $firstcard->save();
+        $firstConsult = Pages::first();
+        if($firstConsult){
+            $firstConsult->update([
+                'title_first_card' => $request->title_first_card,
+                'article_first_card' => $request->article_first_card
+            ]);
+        }else{
+            $firstcard = new Pages();
+            $firstcard->title_first_card = $request->title_first_card;
+            $firstcard->article_first_card = $request->article_first_card;
+            $firstcard->save();
+        }
 
         Session::flash('alert', 'success|Conteúdo do Primeiro card atualizado com sucesso!');
         return redirect()->back();
     }
 
     public function saveSecondcard(Request $request){
-        $secondcard = new Pages();
-        $secondcard->title_second_card = $request->title_second_card;
-        $secondcard->article_second_card = $request->article_second_card;
-        $secondcard->btn_second_card = $request->btn_second_card;
-        $secondcard->save();
+        $secondConsult = Pages::first();
+        if($secondConsult){
+            $secondConsult->update([
+                'title_second_card' => $request->title_second_card,
+                'article_second_card' => $request->article_second_card,
+                'btn_second_card' => $request->btn_second_card
+            ]);
+        }else{
+            $secondcard = new Pages();
+            $secondcard->title_second_card = $request->title_second_card;
+            $secondcard->article_second_card = $request->article_second_card;
+            $secondcard->btn_second_card = $request->btn_second_card;
+            $secondcard->save();
+        }
 
         Session::flash('alert', 'success|Conteúdo do Segundo card atualizado com sucesso!');
         return redirect()->back();
     }
 
     public function saveInfocard(Request $request){
-        $infocard = new Pages();
-        $infocard->title_info_card = $request->title_info_card;
-        $infocard->article_info_card = $request->article_info_card;
-        $infocard->btn_info_card = $request->btn_info_card;
-        $infocard->save();
+        $infoConsult = Pages::first();
+        if($infoConsult){
+            $infoConsult->update([
+                'title_info_card' => $request->title_info_card,
+                'article_info_card' => $request->article_info_card,
+                'btn_info_card' => $request->btn_info_card
+            ]);
+        }else{
+            $infocard = new Pages();
+            $infocard->title_info_card = $request->title_info_card;
+            $infocard->article_info_card = $request->article_info_card;
+            $infocard->btn_info_card = $request->btn_info_card;
+            $infocard->save();
+        }
 
         Session::flash('alert', 'success|Conteúdo do card de Informações atualizado com sucesso!');
         return redirect()->back();
     }
 
     public function saveContactcard(Request $request){
-        $contactcard = new Pages();
-        $contactcard->title_contact_card = $request->title_contact_card;
-        $contactcard->article_contact_card = $request->article_contact_card;
-        $contactcard->label_contact_card = $request->label_contact_card;
-        $contactcard->placeholder_contact_card = $request->placeholder_contact_card;
-        $contactcard->btn_contact_card = $request->btn_contact_card;
-        $contactcard->footer_contact_card = $request->footer_contact_card;
-        $contactcard->save();
+        $contactConsult = Pages::first();
+        if($contactConsult){
+            $contactConsult->update([
+                'title_contact_card' => $request->title_contact_card,
+                'article_contact_card' => $request->article_contact_card,
+                'label_contact_card' => $request->label_contact_card,
+                'placeholder_contact_card' => $request->placeholder_contact_card,
+                'btn_contact_card' => $request->btn_contact_card,
+                'footer_contact_card' => $request->footer_contact_card
+            ]);
+        }else{
+            $contactcard = new Pages();
+            $contactcard->title_contact_card = $request->title_contact_card;
+            $contactcard->article_contact_card = $request->article_contact_card;
+            $contactcard->label_contact_card = $request->label_contact_card;
+            $contactcard->placeholder_contact_card = $request->placeholder_contact_card;
+            $contactcard->btn_contact_card = $request->btn_contact_card;
+            $contactcard->footer_contact_card = $request->footer_contact_card;
+            $contactcard->save();
+        }
 
         Session::flash('alert', 'success|Conteúdo do card de Contato atualizado com sucesso!');
         return redirect()->back();
