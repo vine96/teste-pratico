@@ -10,3 +10,7 @@
 ## Sobre o projeto
 
 Neste projeto desenvolvo uma aplicação web simples 100% responsiva utilizando as tecnologias: PHP com framework Laravel, MariaDB, Javascript, HTML, CSS entre outros.
+
+Esta aplicação conta ainda com um painel administrativo com o plugin adminLTE que gerencia todo o layout da página, bem como usuários, imagens e etc.
+
+
