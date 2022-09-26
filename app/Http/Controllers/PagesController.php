@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use App\Models\Images;
 use App\Models\Pages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 
@@ -273,5 +275,11 @@ class PagesController extends Controller
         }else{
             Session::flash('alert', 'error|Houve algum problema ao realizar o download da imagem.');
         }
+    }
+
+    public function sendEmail(Request $request){
+        Mail::to($request->subscribe)->send(new SendMail());
+        Session::flash('alert', 'success|Email enviado com sucesso!');
+        return redirect()->back();
     }
 }

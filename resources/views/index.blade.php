@@ -213,11 +213,11 @@
             @endif
         </div>
         <div class="contact-form">
-            <form action="#" method="POST">
+            <form action="{{ route('sendEmail') }}" method="POST">
                 @csrf
                 @if ($pages)
                     <label for="subscribe">{{ $pages->label_contact_card ? $pages->label_contact_card : $not }}</label><br><br>
-                    <input type="text" id="subscribe" name="subscribe" placeholder="{{ $pages->placeholder_contact_card ? $pages->placeholder_contact_card : $not }}">
+                    <input type="email" id="subscribe" name="subscribe" placeholder="{{ $pages->placeholder_contact_card ? $pages->placeholder_contact_card : $not }}" required>
                     <button type="submit" class="btn-submit">{{ $pages->btn_contact_card ? $pages->btn_contact_card : $not }}</button>
                 @else
                     <label for="subscribe">{{ $not }}</label><br><br>
